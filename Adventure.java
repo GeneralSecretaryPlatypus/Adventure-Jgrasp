@@ -90,7 +90,6 @@ class Adventure extends JPanel implements KeyListener{
                y = 40;
             }
          }
-      
       }
    }
    //creates the JFrame, and puts first room onto panel

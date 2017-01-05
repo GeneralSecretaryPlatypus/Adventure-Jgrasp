@@ -2,7 +2,7 @@
  * Adventure.java
  * Assignment: Final Project
  * Purpose: Sets up and controls 
- * the palyer's environment, such 
+ * the player's environment, such 
  * as walls, doors, and items  
  * 
  * @version 6/21/16
@@ -47,7 +47,7 @@ public class Environment extends Map{
             if(moveY - 10 <= 0){door = -1;}
          }
          else if(let == 's') {
-            if(moveY + 10 >= 490){door = 1;}
+            if(moveY + 20 >= 490){door = 1;}
          }
       }
       else{
@@ -55,7 +55,7 @@ public class Environment extends Map{
             if(moveX - 10 <= 0){door = -1;}
          }
          if(let == 'd') {
-            if(moveX + 10 >= 790){door = 1;}
+            if(moveX + 20 >= 790){door = 1;}
          }
       }
       return door;         
@@ -75,10 +75,14 @@ public class Environment extends Map{
    public boolean isWall(int moveX, int moveY, char let, int[][] walls){   
       boolean blocked = false;
       if(let == 'w') {
-         if(walls[moveY-3][moveX] == -3584){blocked = true;}
+         for(int i = 0; i <= 18; i++){
+            if(walls[moveY-3][moveX + i] == -3584){blocked = true;}
+         }
       }
       else if(let == 's') {
-         if(walls[moveY+20][moveX] == -3584){blocked = true;}
+         for(int i = 0; i <= 18; i++){
+            if(walls[moveY+20][moveX + i] == -3584){blocked = true;}
+         }
       }
       else if(let == 'a') {
          if(walls[moveY][moveX-3] == -3584 || walls[moveY+17][moveX-3] == -3584){blocked = true;}
